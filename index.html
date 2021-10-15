@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vara Prasad Thammisetty</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+            $(function(){
+                $(".hamburger").click(function(){
+                    $(".nav-bar-right").toggleClass("active");
+                });
+            });
+        </script>
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    <script type="text/javascript">
+        function loadQuote(){
+            fetch("https://quotes.rest/qod.json?category=inspire")
+            .then(res => res.json())
+            .then((out) => {
+            //var obj=JSON.parse(out);
+            var quote=out['contents']['quotes'][0]['quote'];
+            var author=out['contents']['quotes'][0]['author'];
+            document.getElementById('qod').innerText='"'+quote+'"';
+            document.getElementById('author').innerText='- '+author;
+            }).catch(err => console.error(err));
+        }
+        function loadFact(){
+            fetch("https://api.nasa.gov/planetary/apod?api_key=fLeq9rwiAeiD4070Oafb19zzLgtqpWZehRuHlnd2")
+            .then(res=>res.json())
+            .then((out)=>{
+                var fact_title=out['title'];
+                var fact_url=out['url'];
+                var fact_explanation=out['explanation'];
+                //document.getElementById('fod').innerText=fact_explanation;
+                document.getElementById('furl').innerHTML="<figure style='background-image:url("+fact_url+");'></figure>";
+                document.getElementById('ftitle').innerText=fact_title;
+            }).catch(err=>console.err(error));
+        }
+    </script>
+</head>
+<body onload="loadQuote();loadFact();">
+    <div class="wrapper">
+        <div class="nav-bar">
+            <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-bar-left">
+                <a href="#">Vara's Information</a>
+            </div>
+            <div class="nav-bar-right">
+                <ul>
+                    <li> <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li> <a href="Vara_Prasad.pdf" target="_blank"><i class="fas fa-id-card"></i> Resume</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <main>
+        <section class="left-pane">
+                <section class="profile-picture">
+                    <figure></figure>
+                </section>
+                <section class="bio"><p></p>
+                    <h3>Vara Prasad Thammisetty</h3><br>
+                    <class="bio-info">
+                        <p><i class="fas fa-desktop"></i>&nbsp;&nbsp;Developer</p>
+                        <p><i class="far fa-envelope"></i>&nbsp;&nbsp;varaprasadone992@gmail.com</p>
+                        <p><i class="fas fa-tablet-alt"></i>&nbsp;&nbsp;+91 8555831055</p>
+                    </class>
+                </section>
+                <section class="quote">
+                    <table>
+                        <h1><i class="fas fa-quote-left"></i>&nbsp;&nbsp;Certificates&nbsp;&nbsp;<i class="fas fa-quote-right"></i></h1>
+                        
+                        <tr><td style="text-align:center;"><i class="fa fa-graduation-cap"></i></td><td>&nbsp;&nbsp;AWS Cloud Practitioner</td></tr>
+                        <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td>&nbsp;&nbsp;Valid-UP : 2020 - 2023</td></tr>  
+                        <tr><td style="text-align:center;"><i class="fa fa-graduation-cap"></i></td><td>&nbsp;&nbsp;AWS Solution Architect Associate</td></tr>
+                        <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td>&nbsp;&nbsp;Valid-UP : 2021 - 2024</td></tr>  
+                    </table>
+                </section>
+                <section class="quote">
+                    <h1><i class="fas fa-quote-left"></i>&nbsp;&nbsp;Quote of the Day&nbsp;&nbsp;<i class="fas fa-quote-right"></i></h1>
+                    <div id="qod"></div>
+                    <div id="author" style="text-align: right;font-style: italic;"></div>
+                </section>
+
+                <section class="fact">
+                    <h1><i class="fas fa-rocket"></i>&nbsp;&nbsp;Picture Of the Day&nbsp;&nbsp;<i class="fas fa-rocket" style="transform:rotate(270deg);"></i></h1>
+                    <br>
+                    <div id="furl"><figure></figure></div>
+                    <br>
+                    <div id="ftitle" style="text-align: center;font-style: bold;"></div>
+                    <div id="fod" style="text-align: justified;"></div>
+                </section>
+        </section>
+        <section class="right-pane">
+                <section class="techstack">
+                        <h1><i class="fas fa-tools"></i> Technical Skills</h1>
+                        <table>
+                            <tr><td style="text-align:center;"><i class="fas fa-keyboard"></i></td><td>Frameworks</td><td>: Spring, Spring Batch, Spring Boot, Hibernate, JPA, Angular</td></tr>
+                            <tr><td style="text-align:center;"><i class="far fa-file-code"></i></td><td>Technologies</td><td>: Core Java, Spring MVC, Spring Rest, Spring Boot, Spring Batch, Microservices, Junit, TSF, ,Jira, Java 8, Jenkins, 
+                                &nbsp;&nbsp;&nbsp;Maven, Test Driven Development</td></tr> 
+                            <tr><td style="text-align:center;"><i class="fa fa-wrench"></i></td><td>Tools & Repo</td><td>: GIT, Bitbucket, Splunk, Control-M, IntelliJ IDEA</td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-server"></i></td><td>Application Server</td><td>: Apache tomcat, WebLogic, PCF, AWS Server</td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-sitemap"></i></td><td>Methodologies</td><td>: Agile & Pivotal Methodology </td></tr>
+                            <tr><td style="text-align:center;"><i class="fas fa-database"></i></td><td>Databases</td><td>: MySQL, Oracle, SQL Developer</td></tr>                            
+                            <tr><td style="text-align:center;"><i class="fa fa-recycle"></i></td><td>Others</td><td>: Requirement Gathering and Analysis, User experience enhancement</td></tr>
+                        </table>   
+                </section>
+                <section class="work">
+                        <h1><i class="fas fa-business-time"></i> Work Experience</h1>
+                        <table>
+                            <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td><h3>&nbsp;&nbsp;JPMorgan Chase & Co. <h3></td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-anchor"></i></td><td>&nbsp;&nbsp;Mar 2021 – Present,Full-Time.</td></tr>
+                            <tr><td style="text-align:center;"></td><td></td></tr> 
+                            <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td><h3> &nbsp;&nbsp;Photon Infotech Private Limited<h3></td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-anchor"></i></td><td>&nbsp;&nbsp;May 2020 – Mar 2021, Full-Time.</td></tr> 
+                            <tr><td style="text-align:center;"></td><td></td></tr> 
+                            <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td><h3>&nbsp;&nbsp; DELL Technologies<h3></td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-anchor"></i></td><td>&nbsp;&nbsp;Dec 2018 – May 2021, Full-Time.</td></tr> 
+                            <tr><td style="text-align:center;"></td><td></td></tr> 
+                            <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td><h3> &nbsp;&nbsp;Vaya Finserv <h3></td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-anchor"></i></td><td>&nbsp;&nbsp;Jan 2018 – Aug 2018, Full-Time.</td></tr> 
+                            <tr><td style="text-align:center;"></td><td></td></tr> 
+                            <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td><h3> &nbsp;&nbsp;Z-Soft Technologies<h3></td></tr>
+                            <tr><td style="text-align:center;"><i class="fa fa-handshake-o"></i></td><td>&nbsp;&nbsp;Sep 2014 – Jan 2018, Full-Time.</td></tr> 
+                            </table>
+
+                            <p>&nbsp;Project - Domains </p>
+                             <table>
+                            <tr><td style="text-align:center;"><i class="fa fa-flask"></i></td><td>&nbsp;&nbsp;E-commerce, Social, Banking, Transportation, Logistics and Health Care.</td></tr>
+                            </table>
+                            
+                            <p> &nbsp;Roles & Responsibilities </p>
+                             <table>
+                            <tr><td style="text-align:center;"></td><td>●	Implemented web application using Spring Batch, Spring boot with JPA</td></tr>
+                            <tr><td style="text-align:center;"></td><td>●	Involved in end-to-end functionality of action classes to implemented</td></tr>
+                            <tr><td style="text-align:center;"></td><td>●	Writing the code for Controller and service classes using spring frame work</td></tr>
+                            <tr><td style="text-align:center;"></td><td>●	Analysis, design and development of applications using J2EE design patterns</td></tr>
+                            <tr><td style="text-align:center;"></td><td>●	Involved and implemented the test-driven development process and pivotal methodologies.</td></tr>
+                            <tr><td style="text-align:center;"></td><td>●	 Working with Oracle database for data persistence and AWS server, Cloud deployment.</td></tr>
+                            </table>
+ 
+                </section>
+                <section class="education">
+                            <h1><i class="fas fa-graduation-cap"></i> Education</h1>
+                            
+                            <p> Jawaharlal Nehru Technological University </p>
+                            <table>
+                                <tr><td style="text-align:center;"><i class="fas fa-calendar-alt"></i></td><td>&nbsp;&nbsp;June 2009 – June 2013</td></tr>
+                                <tr><td style="text-align:center;"><i class="fas fa-university"></i></i></td><td>&nbsp;&nbsp;Bachelor of Technology in Computer Science</td></tr>
+                                <tr><td style="text-align:center;"><i class="fas fa-edit"></i></td><td>&nbsp;&nbsp;Overall aggregate of 67.50 (CGPA)</td></tr> 
+                            </table>                        
+                            
+                </section>
+        </section>
+    </main>
+    <footer>
+        <center>
+        <p>Reach out to me</p>
+        <p><a href="" target="_blank"><i class="fab fa-facebook"></i></a>
+           <a href="" target="_blank"><i class="fab fa-twitter-square"></i></a>
+           <a href="" target="_blank"><i class="fab fa-linkedin"></i></a>
+           <a href="" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+           <a href="" target="_blank"><i class="fab fa-google-plus-square"></i></a>
+        </p>
+        </center>
+    </footer>
+</body>
